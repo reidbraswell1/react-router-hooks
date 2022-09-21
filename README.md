@@ -1,4 +1,3 @@
-# Getting Started with Create React App
 # React Router Hooks
 
 ## Part 1
@@ -8,15 +7,12 @@ Start off by creating the component for our film page.
 
 1. Create a new file in `pages/` called `singlefilm.page.jsx`
 1. Create a functional component called `SingleFilmPage` in `singlefilm.page.jsx`
-    
     * make sure to export it (I tend to forget unless I do it early on)
-
 1. Import `useState` from the `react` package
 1. Import `useParams` from the `react-router-dom package`
 1. Declare a piece of state, `item` and `setItem`, that will be destructured from the return of `useState({})`
 1. Call `useParams`
     * Destructure `id`from the return object
-
 1. Add the following to the return statement
 
 ```
@@ -119,7 +115,7 @@ Output:
 }
 ```
 
-1. Implement getFilmStats
+1. Implement `getFilmStats`
 
 ### Exercise 2: Display Film Stats
 
