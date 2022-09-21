@@ -8,12 +8,15 @@ Start off by creating the component for our film page.
 
 1. Create a new file in `pages/` called `singlefilm.page.jsx`
 1. Create a functional component called `SingleFilmPage` in `singlefilm.page.jsx`
-  * make sure to export it (I tend to forget unless I do it early on)
+    
+    * make sure to export it (I tend to forget unless I do it early on)
+
 1. Import `useState` from the `react` package
 1. Import `useParams` from the `react-router-dom package`
 1. Declare a piece of state, `item` and `setItem`, that will be destructured from the return of `useState({})`
 1. Call `useParams`
-  * Destructure `id`from the return object
+    * Destructure `id`from the return object
+
 1. Add the following to the return statement
 
 ```
@@ -43,6 +46,7 @@ Start off by creating the component for our film page.
   </div>
 </div>
 ```
+
 Feel free to change anything about this return statement from content to style. We'll use this to display information about a single film.
 
 ### Exercise 2: getFilm
