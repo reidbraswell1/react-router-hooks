@@ -87,14 +87,15 @@ Lastly, set up a route for SingleFilmPage.
 ## Part 2
 
 ### Exercise 1: Create getFilmStats
-Create and export a new helper function in film.helpers.js called getFilmStats.
 
-The goal of getFilmStats is to receive list (array) parameter, and return a object that contains the following:
+Create and export a new helper function in `film.helpers.js` called `getFilmStats`.
 
-avg_score as a number, being the average rt_score of the list of films
-acc_score as a number, being the sum rt_score of the list of films
-total as a number, being the amount of films in the list
-latest as a number, being the latest release year for a film in the list
+The goal of `getFilmStats` is to receive `list` (array) parameter, and return a object that contains the following:
+
+  * `avg_score` as a number, being the average rt_score of the list of films
+  * `acc_score` as a number, being the sum rt_score of the list of films
+  * `total` as a number, being the amount of films in the list
+  * `latest` as a number, being the latest release year for a film in the list
 
 For example:
 
@@ -114,14 +115,17 @@ Output:
 }
 ```
 
-Implement getFilmStats
+1. Implement getFilmStats
+
 ### Exercise 2: Display Film Stats
+
 Create several elements for displaying average film score, latest film and total films for the filtered list of films.
 
-In films.page.jsx, import getFilmStats from film.helpers.js
-Call getFilmStats before the return statement and pass list as a parameter
-destructure avg_score, total and latest from the result
-Add the following code to the return statement between the form and ul
+1. In `films.page.jsx`, import `getFilmStats` from `film.helpers.js`
+1. Call `getFilmStats` before the return statement and pass `list` as a parameter
+destructure `avg_score`, `total` and `latest` from the result
+1. Add the following code to the return statement between the `form` and `ul`
+
 ```
 <div>
   <div>
