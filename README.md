@@ -6,15 +6,16 @@
 ### Exercise 1: Creating SingleFilm Page
 Start off by creating the component for our film page.
 
-Create a new file in pages/ called singlefilm.page.jsx
-Create a functional component called SingleFilmPage in singlefilm.page.jsx
-make sure to export it (I tend to forget unless I do it early on)
-Import useState from the react package
-Import useParams from the react-router-dom package
-Declare a piece of state, item and setItem, that will be destructured from the return of useState({})
-Call useParams
-Destructure id from the return object
-Add the following to the return statement
+1. Create a new file in `pages/` called `singlefilm.page.jsx`
+1. Create a functional component called `SingleFilmPage` in `singlefilm.page.jsx`
+  * make sure to export it (I tend to forget unless I do it early on)
+1. Import `useState` from the `react` package
+1. Import `useParams` from the `react-router-dom package`
+1. Declare a piece of state, `item` and `setItem`, that will be destructured from the return of `useState({})`
+1. Call `useParams`
+  * Destructure `id`from the return object
+1. Add the following to the return statement
+
 ```
 <div>
   <div>
@@ -45,38 +46,43 @@ Add the following to the return statement
 Feel free to change anything about this return statement from content to style. We'll use this to display information about a single film.
 
 ### Exercise 2: getFilm
-Similar to our getFilms function in films.page.jsx, create a function to get a single Studio Ghibli film.
 
-In SingleFilmPage, create a function called getFilm
-The function should call the fetch function with the following url parameter: https://ghibliapi.herokuapp.com/films/${id}
-id in this case will need to be interpolated since we'll be getting that value dynamically from the route params
-Call the then method on the returned promise
-the first then call should receive a callback function that returns the result parsed to json
-Make another then call on the returned promise
-the second then call should receive a callback function that uses setItem to set item equal to the result
-Lastly add a catch method call that should receive a callback function that will handle an error if one occurs
+Similar to our `getFilms` function in `films.page.jsx`, create a function to get a single Studio Ghibli film.
 
-### Exercise 3: Calling getFilm in useEffect#
-Call getFilm when the component mounts.
+1. In `SingleFilmPage`, create a function called `getFilm`
+1. The function should call the `fetch` function with the following `url` parameter: https://ghibliapi.herokuapp.com/films/${id}
+    * `id` in this case will need to be interpolated since we'll be getting that value dynamically from the route params
+1. Call the `then` method on the returned promise
+   * the first `then` call should receive a callback function that **returns the result parsed to json**
+1. Make another `then` call on the returned promise
+    * the second `then` call should receive a callback function that uses `setItem` to **set `item` equal to the result**
+1. Lastly add a `catch` method call that should receive a callback function that will handle an error if one occurs
 
-Import useEffect from the react package
-Call useEffect with
-a callback function passed in that calls getFilm
-an empty dependency array passed in
+### Exercise 3: Calling getFilm in useEffect
 
-### Exercise 4: Links to Single Films#
+Call `getFilm` when the component mounts.
+
+1. Import `useEffect` from the `react` package
+1. Call `useEffect` with
+    * a callback function passed in that calls `getFilm`
+    * an empty dependency array passed in
+
+### Exercise 4: Links to Single Films
+
 Add links to a single page view.
 
-In pages/films.page.jsx, import Link from react-router-dom
-Update the li's rendered by list.map(...) to include a Link
-wrap the item.title in a Link that has a path set to film/${film.id}
-make sure the path is interpolated to include the film's id as a url parameter
-Exercise 5: A Route for SingleFilmPage#
+1. In `pages/films.page.jsx`, import `Link` from `react-router-dom`
+1. Update the `li's` rendered by `list.map(...)` to include a `Link`
+    * wrap the `item.title` in a `Link` that has a `path` set to `film/${film.id}`
+    * make sure the path is interpolated to include the film's `id` as a **url parameter**
+
+### Exercise 5: A Route for SingleFilmPage
+
 Lastly, set up a route for SingleFilmPage.
 
-In pages/index.js, import SingleFilmPage and export it with HomePage and FilmsPage
-In App.jsx, add SingleFilmPage to the destructured imports from pages/
-Add a Route within Routes that renders SingleFilmPage for "film/:id" paths
+1. In `pages/index.js`, import `SingleFilmPage` and export it with `HomePage` and `FilmsPage`
+1. In `App.jsx`, add `SingleFilmPage` to the destructured imports from `pages/`
+1. Add a `Route` within `Routes` that renders `SingleFilmPage` for `"film/:id"` paths
 
 ## Part 2
 
