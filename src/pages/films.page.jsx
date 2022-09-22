@@ -1,4 +1,10 @@
+import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { filterFilmsByDirector } from "../helpers/film.helpers.js";
+import { getListOf } from "../helpers/film.helpers.js";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer.jsx";
 
 function FilmsPage(props) {
 
