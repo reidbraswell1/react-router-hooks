@@ -2,6 +2,62 @@ import { Link } from "react-router-dom";
 
 function FilmsPage(props) {
 
+    console.log(`---Begin Function FilmsList()---`);
+
+    const [ list, setList ] = useState([]);
+    const [ errorText, setErrorText ] = useState("");
+    const [ errorTest, setErrorTest ] = useState(false);
+    const [ searchDirector, setSearchDirector ] = useState("All");
+    const [ directors, setDirectors ] = useState([]);
+
+    useEffect(function () {
+        console.log(`---Begin useEffect()---`);
+        getFilms();
+        console.log(`---End useEffect()---`);
+    }, []);
+
+    function getFilms() {
+        console.log(`---Begin FilmsList getFilms()---`);
+ 
+        const BAD_URL = "https://ghibliapi.herokuapp.com/filmss"
+        const GOOD_URL = "https://ghibliapi.herokuapp.com/films"
+        let URL = "";
+
+        // Set URL to the good url or bad based on the errTest prop
+        if(errorTest) {
+            URL = BAD_URL;
+        }
+        else {
+            URL = GOOD_URL;
+        }
+        fetch(URL)
+            .then((response) => {
+                if(response.ok) { 
+                    return response.json()
+                }
+                else {
+                    throw new Error("Unknown Network Error Has Occurred");
+                }
+            })
+            .then((data) => {
+                console.log(`Data=`,data);
+                setList(data);
+                const directors = getListOf(data, "director");
+                console.log(`Directors=`,directors)
+                setDirectors(directors);
+                setErrorText("");
+            })
+            .catch((err) => { 
+                console.log(`${err} fetching from URL: ${URL}`);
+                setList([]);
+                setErrorText(`${err} fetching from URL: ${URL}`);
+            });
+        console.log(`---End FilmsList getFilms()---`);
+    }
+    
+    const filmsByDirector = filterFilmsByDirector(list, searchDirector);
+
+
     return(
     <div className="container">
         <div className="row">
