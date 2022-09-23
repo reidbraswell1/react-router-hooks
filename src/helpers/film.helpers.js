@@ -11,6 +11,7 @@ function filterFilmsByDirector(searchList,searchDirector) {
     searchList.map((value, index, array) => {
         if(value.director === searchDirector || searchDirector === "All") {
             let filteredElement = {};
+            filteredElement.id = value.id;
             filteredElement.title = value.title;
             filteredElement.director = value.director;
             filteredList.push(filteredElement);
