@@ -35,6 +35,14 @@ a {
   color: white !important;
 }
 
+.link {
+  color: black !important;
+}
+
+.link:hover {
+  color: blue !important;
+}
+
 a:hover {
   color: yellow !important;
 }
