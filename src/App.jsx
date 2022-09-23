@@ -5,9 +5,8 @@ import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import "./App.css";
-import { HomePage } from "./pages/index.js";
-import { FilmsPage } from "./pages/index.js";
-
+import { HomePage } from "./pages/home.page.jsx";
+import { FilmsPage } from "./pages/films.page.jsx";
 function App(props) {
 
   //const { pathname } = useLocation();
