@@ -6,6 +6,8 @@ function SingleFilmPage(props) {
 
     console.log(`---Begin Function SingleFilmPage()---`);
 
+    const [ errorText, setErrorText ] = useState("");
+    const [ errorTest, setErrorTest ] = useState(false);
     const [ item, setItem ] = useState({});
     const { id } = useParams();
 
@@ -40,45 +42,43 @@ function SingleFilmPage(props) {
             })
             .then((data) => {
                 console.log(`Data=`,data);
-                setList(data);
-                const directors = getListOf(data, "director");
-                console.log(`Directors=`,directors)
-                setDirectors(directors);
+                setItem(data);
                 setErrorText("");
             })
             .catch((err) => { 
                 console.log(`${err} fetching from URL: ${URL}`);
-                setList([]);
+                setItem({});
                 setErrorText(`${err} fetching from URL: ${URL}`);
             });
         console.log(`---End FilmsList getFilms()---`);
 
     }
 
-    return(<div>
-        <div>
-          <img src={`${item.image}`} alt={`${item.title} Poster`} />
-        </div>
-        <div>
-          <h1>{item.title}</h1>
-          <p>
-            Directed by {item.director}. Produced by {item.producer}.
-          </p>
-          <p>
-            The film was released in <strong>{item.release_date}</strong> and garnered
-            a <strong>{item.rt_score}</strong> aggregate score on{" "}
-            <a
-              href="https://www.rottentomatoes.com/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Rotten Tomatoes
-            </a>
-            .
-          </p>
-          <h2>Description</h2>
-          <p>{item.description}</p>
-        </div>
-      </div>);
+    return(<div className="container">
+              <div className="row">
+                <div className="col-6 my-center">
+                  <img src={`${item.image}`} alt={`${item.title} Poster`} />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-6 my-center">
+                  <h1>{item.title}</h1>
+                  <p>
+                  Directed by {item.director}. Produced by {item.producer}.
+                  </p>
+                  <p>
+                    The film was released in <strong>{item.release_date}</strong> and garnered
+                    a <strong>{item.rt_score}</strong> aggregate score on{" "}
+                    <a
+                      href="https://www.rottentomatoes.com/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >Rotten Tomatoes.</a>
+                  </p>
+                  <h2>Description</h2>
+                  <p>{item.description}</p>
+              </div>
+            </div>
+        </div>);
 }
-export default SingleFilmPage;
+export { SingleFilmPage };
