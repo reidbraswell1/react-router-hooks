@@ -7,6 +7,7 @@ import { useLocation } from 'react-router-dom';
 import "./App.css";
 import { HomePage } from "./pages/home.page.jsx";
 import { FilmsPage } from "./pages/films.page.jsx";
+import { SingleFilmPage } from "./pages/singlefilm.page.jsx"
 function App(props) {
 
   //const { pathname } = useLocation();
@@ -27,6 +28,7 @@ function App(props) {
       <Routes>
         <Route exact path="/" element={<HomePage></HomePage>}></Route>
         <Route path="/films" element={<FilmsPage></FilmsPage>}></Route>
+        <Route path="/film/:id" element={<SingleFilmPage></SingleFilmPage>}></Route>
       </Routes>
     </BrowserRouter>
   )
