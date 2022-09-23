@@ -1,6 +1,7 @@
 import { React, useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import Footer from "../components/footer";
 
 function SingleFilmPage(props) {
 
@@ -56,8 +57,10 @@ function SingleFilmPage(props) {
 
     return(<div className="container">
               <div className="row">
-                <div className="col-6 my-center">
-                  <img src={`${item.image}`} alt={`${item.title} Poster`} />
+                <div className="col-7 my-center">
+                  <div className="text-center">
+                    <img src={`${item.image}`} alt={`${item.title} Poster`} />
+                  </div>
                 </div>
               </div>
               <div className="row">
@@ -77,6 +80,7 @@ function SingleFilmPage(props) {
                   </p>
                   <h2>Description</h2>
                   <p>{item.description}</p>
+                  <Footer></Footer>
               </div>
             </div>
         </div>);
