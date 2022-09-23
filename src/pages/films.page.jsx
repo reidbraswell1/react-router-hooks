@@ -91,11 +91,13 @@ function FilmsPage(props) {
                 <h4 className="text-center color-white">Title - Director</h4>
                 <ul className="list-group border border-primary rounded">
                     {filmsByDirector.map((value,index,array) => {
-                        let path=`film/${value.id}`;
+                        let path=`/film/${value.id}`;
+                        console.log(`Path=`,path);
+                        console.log(value.id);
                         return(
                             <li className="list-group-item" 
                                 key={value.id} 
-                                id={value.id}>{index+1}. <Link path={path}>{value.title} - {value.director}</Link>
+                                id={value.id}>{index+1}. <Link className="link" to={path} href={path}>{value.title} - {value.director}</Link>
                             </li>)})}
                 </ul>
                 <p className="error"><span className="color-red">{errorText}</span></p>
