@@ -65,7 +65,7 @@ function SingleFilmPage(props) {
               </div>
               <div className="row">
                 <div className="col-6 my-center">
-                  <h1>{item.title}</h1>
+                  <h1 className="text-decoration-underline">{item.title}</h1>
                   <p>
                   Directed by {item.director}. Produced by {item.producer}.
                   </p>
@@ -78,7 +78,7 @@ function SingleFilmPage(props) {
                       rel="noreferrer"
                     >Rotten Tomatoes.</a>
                   </p>
-                  <h2>Description</h2>
+                  <h2 className="text-decoration-underline">Description</h2>
                   <p>{item.description}</p>
                   <Footer></Footer>
               </div>
