@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { filterFilmsByDirector } from "../helpers/film.helpers.js";
 import { getListOf } from "../helpers/film.helpers.js";
+import { getFilmStats } from "../helpers/film.helpers.js";
 import { Link } from "react-router-dom";
 import Footer from "../components/footer.jsx";
 
@@ -15,6 +16,7 @@ function FilmsPage(props) {
     const [ errorTest, setErrorTest ] = useState(false);
     const [ searchDirector, setSearchDirector ] = useState("All");
     const [ directors, setDirectors ] = useState([]);
+    const [ filmStats, setFilmStats ] = useState({});
 
     useEffect(function () {
         console.log(`---Begin useEffect()---`);
@@ -49,7 +51,10 @@ function FilmsPage(props) {
                 console.log(`Data=`,data);
                 setList(data);
                 const directors = getListOf(data, "director");
-                console.log(`Directors=`,directors)
+                console.log(`Directors=`,directors);
+                const filmStats = getFilmStats(data);
+                console.log(`Film Stats=`, filmStats);
+                setFilmStats(filmStats);
                 setDirectors(directors);
                 setErrorText("");
             })
@@ -101,9 +106,25 @@ function FilmsPage(props) {
                             </li>)})}
                 </ul>
                 <p className="error"><span className="color-red">{errorText}</span></p>
-                <Footer></Footer>
             </div>
         </div>
+        <div className="row">
+            <div className="col-2 border my-center">
+                <h4>Totals</h4>
+                <div>
+                    <span># Of Films </span>
+                    <span>{filmStats.total}</span>
+                </div>
+                <div>
+                    <span>Average Rating </span>
+                    <span>{(filmStats.avg_score).toFixed(2)}</span>
+                </div>
+                <div>
+                    <span>Average Rating </span>
+                    <span>{filmStats.latest}</span>
+                </div>
+            </div>
+        </div>        
     </div>);
 }
 export { FilmsPage };
