@@ -109,22 +109,26 @@ function FilmsPage(props) {
             </div>
         </div>
         <div className="row">
-            <div className="col-2 border my-center">
-                <h4>Totals</h4>
-                <div>
-                    <span># Of Films </span>
-                    <span>{filmStats.total}</span>
-                </div>
-                <div>
-                    <span>Average Rating </span>
-                    <span>{(filmStats.avg_score).toFixed(2)}</span>
-                </div>
-                <div>
-                    <span>Average Rating </span>
-                    <span>{filmStats.latest}</span>
-                </div>
+            <div className="col-3 my-center">
+                <h4 className="text-center">Totals</h4>
+                <ul className="list-group border border-primary rounded">
+                    <li className="list-group-item">
+                        # Of Films: <span className="text-decoration-underline">{filmStats.total}</span>
+                    </li>
+                    <li className="list-group-item">
+                        Average Rating: <span className="text-decoration-underline">{(parseFloat(filmStats.avg_score)).toFixed(2)}</span>
+                    </li>
+                    <li className="list-group-item">
+                        Latest Film: <span className="text-decoration-underline">{filmStats.latest}</span>
+                    </li>
+                </ul>
             </div>
-        </div>        
+        </div>
+        <div className="row">
+            <div className="col-5 my-center">
+                <Footer></Footer>
+            </div>
+        </div>      
     </div>);
 }
 export { FilmsPage };
