@@ -41,7 +41,40 @@ function getListOf(searchList, property) {
 
     console.log(`List of Directors=`,resultArray);
     console.log(`---End Function getListOf()---`);
-    
+
     return resultArray;
 }
-export { filterFilmsByDirector, getListOf };
+
+function getFilmStats(list) {
+
+    console.log(`---Begin Function getFilmStats()---`);
+    console.log(`List=`,list);
+    
+    let acc_score = 0;
+    let avg_score = 0;
+    let total = 0;
+    let latest = 0;
+    let result_object = {};
+
+    list.map((value, index, array) => {
+        acc_score+=parseInt(value.rt_score);
+        total+=1;
+        if(parseInt(value.release_date) > latest) {
+            latest = parseInt(value.release_date);
+        }
+
+    });
+    avg_score = acc_score/total;
+
+    result_object.acc_score = acc_score;
+    result_object.avg_score = avg_score;
+    result_object.total = total;
+    result_object.latest = latest;
+
+    console.log(`Result Object=`,result_object);
+    console.log(`---End Function getFilmStats()---`);
+
+    return result_object;
+}
+
+export { filterFilmsByDirector, getListOf, getFilmStats };
