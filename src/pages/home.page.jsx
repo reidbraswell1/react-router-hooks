@@ -102,6 +102,10 @@ function HomePage(props) {
                              </li>;
                     })}
                   </ul>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-5 my-center">
                   <Footer></Footer>
                 </div>
               </div>
