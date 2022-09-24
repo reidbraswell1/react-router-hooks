@@ -7,6 +7,7 @@ import { getFilmStats } from "../helpers/film.helpers.js";
 import { Link } from "react-router-dom";
 import Footer from "../components/footer.jsx";
 
+// Films Page Main Function
 function FilmsPage(props) {
 
     console.log(`---Begin Function FilmsList()---`);
