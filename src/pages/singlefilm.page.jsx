@@ -65,7 +65,7 @@ function SingleFilmPage(props) {
               </div>
               <div className="row">
                 <div className="col-6 my-center">
-                  <h1 className="text-decoration-underline">{item.title}</h1>
+                  <h1 className="text-decoration-underline mt-3">{item.title}</h1>
                   <p>
                   Directed by {item.director}. Produced by {item.producer}.
                   </p>
