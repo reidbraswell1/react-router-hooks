@@ -17,7 +17,6 @@ function FilmsPage(props) {
     const [ errorTest, setErrorTest ] = useState(false);
     const [ searchDirector, setSearchDirector ] = useState("All");
     const [ directors, setDirectors ] = useState([]);
-    const [ filmStats, setFilmStats ] = useState({});
 
     useEffect(function () {
         console.log(`---Begin useEffect()---`);
@@ -53,9 +52,6 @@ function FilmsPage(props) {
                 setList(data);
                 const directors = getListOf(data, "director");
                 console.log(`Directors=`,directors);
-                const filmStats = getFilmStats(data);
-                console.log(`Film Stats=`, filmStats);
-                setFilmStats(filmStats);
                 setDirectors(directors);
                 setErrorText("");
             })
@@ -67,7 +63,10 @@ function FilmsPage(props) {
         console.log(`---End FilmsList getFilms()---`);
     }
     
-    const filmsByDirector = filterFilmsByDirector(list, searchDirector);
+    let filmsByDirector = filterFilmsByDirector(list, searchDirector);
+    let filmStats = getFilmStats(filmsByDirector);
+    console.log(`Film Stats=`, filmStats);
+    let { total, avg_score, latest } = filmStats;
 
 
     return(
@@ -97,13 +96,11 @@ function FilmsPage(props) {
                 <h4 className="text-center color-white">Title - Director</h4>
                 <ul className="list-group border border-primary rounded">
                     {filmsByDirector.map((value,index,array) => {
-                        let path=`/film/${value.id}`;
-                        console.log(`Path=`,path);
-                        console.log(value.id);
+                        let { id, title, director } = value;
                         return(
                             <li className="list-group-item" 
-                                key={value.id} 
-                                id={value.id}>{index+1}. <Link className="link" to={path}>{value.title} - {value.director}</Link>
+                                key={id} 
+                                id={id}>{index+1}. <Link className="link" to={`/film/${id}`}>{title} - {director}</Link>
                             </li>)})}
                 </ul>
                 <p className="error"><span className="color-red">{errorText}</span></p>
@@ -114,13 +111,13 @@ function FilmsPage(props) {
                 <h4 className="text-center">Totals</h4>
                 <ul className="list-group border border-primary rounded">
                     <li className="list-group-item">
-                        # Of Films: <span className="text-decoration-underline">{filmStats.total}</span>
+                        # Of Films: <span className="text-decoration-underline">{total}</span>
                     </li>
                     <li className="list-group-item">
-                        Average Rating: <span className="text-decoration-underline">{(parseFloat(filmStats.avg_score)).toFixed(2)}</span>
+                        Average Rating: <span className="text-decoration-underline">{(parseFloat(avg_score)).toFixed(2)}</span>
                     </li>
                     <li className="list-group-item">
-                        Latest Film: <span className="text-decoration-underline">{filmStats.latest}</span>
+                        Latest Film: <span className="text-decoration-underline">{latest}</span>
                     </li>
                 </ul>
             </div>
