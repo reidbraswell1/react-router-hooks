@@ -103,7 +103,7 @@ function FilmsPage(props) {
                         return(
                             <li className="list-group-item" 
                                 key={value.id} 
-                                id={value.id}>{index+1}. <Link className="link" to={path} href={path}>{value.title} - {value.director}</Link>
+                                id={value.id}>{index+1}. <Link className="link" to={path}>{value.title} - {value.director}</Link>
                             </li>)})}
                 </ul>
                 <p className="error"><span className="color-red">{errorText}</span></p>
