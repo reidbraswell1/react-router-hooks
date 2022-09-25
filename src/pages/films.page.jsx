@@ -107,8 +107,12 @@ function FilmsPage(props) {
             </div>
         </div>
         <div className="row">
-            <div className="col-3 my-center">
-                <h4 className="text-center">Totals</h4>
+            <div className="col-4 my-center">
+                <h4 className="text-center">Totals for <span className="text-decoration-underline">{searchDirector}</span></h4>
+            </div>
+        </div>
+        <div className="row">
+            <div className="col-2 my-center">
                 <ul className="list-group border border-primary rounded">
                     <li className="list-group-item">
                         # Of Films: <span className="text-decoration-underline">{total}</span>
