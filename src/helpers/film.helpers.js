@@ -16,6 +16,8 @@ function filterFilmsByDirector(searchList,searchDirector) {
             filteredElement.id = value.id;
             filteredElement.title = value.title;
             filteredElement.director = value.director;
+            filteredElement.rt_score = value.rt_score;
+            filteredElement.release_date = value.release_date;
             filteredList.push(filteredElement);
         }
     });
