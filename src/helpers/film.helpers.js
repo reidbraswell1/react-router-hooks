@@ -7,18 +7,18 @@ function filterFilmsByDirector(searchList,searchDirector) {
     console.log(`---Begin filterFilmsByDirector()---`);
     console.log(`SearchList=`,searchList);
     console.log(`Search Director=`,searchDirector)
-    
+
     let filteredList = [];
     
     searchList.map((value, index, array) => {
         if(value.director === searchDirector || searchDirector === "All") {
-            let filteredElement = {};
-            filteredElement.id = value.id;
-            filteredElement.title = value.title;
-            filteredElement.director = value.director;
-            filteredElement.rt_score = value.rt_score;
-            filteredElement.release_date = value.release_date;
-            filteredList.push(filteredElement);
+            let obj = {};
+            obj.id = value.id;
+            obj.title = value.title;
+            obj.director = value.director;
+            obj.rt_score = value.rt_score;
+            obj.release_date = value.release_date;
+            filteredList.push(obj);
         }
     });
 
