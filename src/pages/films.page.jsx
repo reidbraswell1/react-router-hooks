@@ -112,7 +112,7 @@ function FilmsPage(props) {
             </div>
         </div>
         <div className="row">
-            <div className="col-2 my-center">
+            <div className="col-3 my-center">
                 <ul className="list-group border border-primary rounded">
                     <li className="list-group-item">
                         # Of Films: <span className="text-decoration-underline">{total}</span>
